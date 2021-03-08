@@ -9,6 +9,7 @@ public class SaveDataController : MonoBehaviour
         if (!PlayerPrefs.HasKey("record"))
             return;
 
+        data.scores = 0;
         data.record = PlayerPrefs.GetInt("record");
     }
 
