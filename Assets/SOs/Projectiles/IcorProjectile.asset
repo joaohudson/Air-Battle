@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4064e0ecc7350d9408b08c23bb07a82c, type: 3}
+  m_Name: IcorProjectile
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: 6e65ec4488291584fa4ee43202468002, type: 2}
+  bilboard: 1
+  range: 200
+  spreadAmount: 25
+  fireRate: 4
+  speed: 100
+  size: 1
+  damage: 10
+  effect: 3
