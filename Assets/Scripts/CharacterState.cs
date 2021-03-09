@@ -105,7 +105,7 @@ public class CharacterState : MonoBehaviour
     /// </summary>    
     public CharacterInfo info;
 
-    private void Start()
+    private void Awake()
     {
         Health = info.health;
         Status = CharacterStatus.NONE;
