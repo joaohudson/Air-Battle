@@ -95,7 +95,7 @@ public class StatusManager : MonoBehaviour
         for(int i = 0; i < iterations; i++)
         {
             yield return delay;
-            CombatLogic.TakeDamage(state, damage);
+            CombatLogic.TakeDamage(state, null, damage);
         }
 
         continuosDamage = null;

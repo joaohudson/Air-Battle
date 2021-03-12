@@ -19,6 +19,7 @@ public class FastShooter : MonoBehaviour
         public float distance;
         public ProjectileInfo info;
         public string target;
+        public CharacterState own;
     }
 
     [SerializeField]
@@ -58,9 +59,9 @@ public class FastShooter : MonoBehaviour
         }
     }
 
-    public void Fire(ProjectileInfo projectile, Vector3 position, Vector3 direction, string target)
+    public void Fire(ProjectileInfo projectile, Vector3 position, Vector3 direction, string target, CharacterState own)
     {
-        Spawn(projectile, position, direction, target);
+        Spawn(projectile, position, direction, target, own);
     }
 
     private void FixedUpdate()
@@ -73,7 +74,7 @@ public class FastShooter : MonoBehaviour
                 if (cd.CompareTag(projectiles[i].target))
                 {
                     var state = cd.GetComponent<CharacterState>();
-                    CombatLogic.TakeDamage(state, projectiles[i].info.damage, projectiles[i].info.effect);
+                    CombatLogic.TakeDamage(state, projectiles[i].own, projectiles[i].info.damage, projectiles[i].info.effect);
                     Delete(i);
                     i--;
                     break;
@@ -82,7 +83,7 @@ public class FastShooter : MonoBehaviour
         }
     }
 
-    private void Spawn(ProjectileInfo info, Vector3 position, Vector3 direction, string target)
+    private void Spawn(ProjectileInfo info, Vector3 position, Vector3 direction, string target, CharacterState own)
     {
         if (count == capacity)
             return;
@@ -101,6 +102,7 @@ public class FastShooter : MonoBehaviour
             projectiles[count].distance = 0f;
             projectiles[count].info = info;
             projectiles[count].target = target;
+            projectiles[count].own = own;
             count++;
 
             rot = Quaternion.AngleAxis(Random.Range(-angle, angle), Vector3.up) * 

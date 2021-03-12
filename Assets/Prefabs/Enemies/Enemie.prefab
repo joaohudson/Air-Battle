@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7222377311558454467}
   - component: {fileID: 7222377311558454465}
   - component: {fileID: 7222377311558454527}
+  - component: {fileID: -4271122084365201167}
   m_Layer: 0
   m_Name: Enemie
   m_TagString: Enemie
@@ -218,6 +219,18 @@ MonoBehaviour:
   vulnerableParticles: {fileID: 7325189399298672722}
   slowedParticles: {fileID: 539256167287848058}
   fireParticles: {fileID: 6633795337736970505}
+--- !u!114 &-4271122084365201167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222377311558454471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd2688e6a1a48945a8ee7a497b9bc05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7222377311796309883
 GameObject:
   m_ObjectHideFlags: 0

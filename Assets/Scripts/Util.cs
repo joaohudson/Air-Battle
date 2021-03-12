@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Util
 {
+    public static bool Chance(float probability)
+    {
+        return Random.Range(0f, 1f) <= probability;
+    }
+
     /// <summary>
     /// Gera um vetor aleatório no espaço 3D
     /// normalizado.

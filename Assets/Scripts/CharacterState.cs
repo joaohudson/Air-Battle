@@ -8,6 +8,43 @@ public enum CharacterStatus
     NONE, ICED, SLOWED, VUNERABLE, BURNING
 }
 
+public enum CharacterBuff
+{
+    NONE, SPEED, DEFENSE, LIFE_DRAIN, ATTACK
+}
+
+public class CharacterBuffValues
+{
+    /// <summary>
+    /// Duração de cada buff.
+    /// </summary>
+    public const float BUFF_DURATION = 20f;
+
+    /// <summary>
+    /// Fator de aumento da velocidade
+    /// do buff de velocidade(SPEED).
+    /// </summary>
+    public const float SPEED_FACTOR = 2f;
+
+    /// <summary>
+    /// Fator de redução de dano do
+    /// buff de defesa(DEFENSE).
+    /// </summary>
+    public const float DEFENSE_FACTOR = 0.5f;
+
+    /// <summary>
+    /// Fator de aumento de ataque
+    /// do buff de ataque(ATTACK).
+    /// </summary>
+    public const float ATTACK_FACTOR = 1.5f;
+
+    /// <summary>
+    /// Fator de absorção de vida do
+    /// buff de absorção de vida(LIFE_DRAIN).
+    /// </summary>
+    public const float LIFE_DRAIN_FACTOR = 0.6f;
+}
+
 public class CharacterStatusValues
 {
     /// <summary>
@@ -22,6 +59,12 @@ public class CharacterStatusValues
     public const float DAMAGE_PERIOD = 0.25f;
 
     /// <summary>
+    /// O multiplicador de dano para quando o
+    /// personagem está vulnerável.
+    /// </summary>
+    public const float VULNERABLE_DAMAGE_FACTOR = 2.5f;
+
+    /// <summary>
     /// Dano causado pelo status de fogo a cada DAMAGE_PERIOD.
     /// </summary>
     public const int FIRE_DAMAGE = 20;
@@ -32,6 +75,7 @@ public class CharacterState : MonoBehaviour
 
     #region Fields
     private CharacterStatus status;
+    private CharacterBuff buff;
     private int health;
     #endregion
 
@@ -44,6 +88,11 @@ public class CharacterState : MonoBehaviour
     /// Chamado quando o status é alterado.
     /// </summary>
     public event Action OnChangeStatus;
+    /// <summary>
+    /// Chamado quando o buff desse personagem é
+    /// alterado.
+    /// </summary>
+    public event Action OnChangeBuff;
     #endregion
 
     /// <summary>
@@ -54,6 +103,18 @@ public class CharacterState : MonoBehaviour
         set{
             status = value;
             OnChangeStatus?.Invoke();
+        }
+    }
+
+    /// <summary>
+    /// Buff desse personagem. efeito que aumenta as
+    /// características do personagem.
+    /// </summary>
+    public CharacterBuff Buff {
+        get => buff;
+        set {
+            buff = value;
+            OnChangeBuff?.Invoke();
         }
     }
 
@@ -88,15 +149,25 @@ public class CharacterState : MonoBehaviour
     public float Speed { 
         get 
         {
+            float statusFactor;
+            float buffFactor;
+
+            buffFactor = Buff == CharacterBuff.SPEED ? CharacterBuffValues.SPEED_FACTOR : 1f;
+
             switch (Status)
             {
                 case CharacterStatus.SLOWED:
-                    return info.speed * 0.5f;
+                    statusFactor = info.speed * 0.5f;
+                    break;
                 case CharacterStatus.ICED:
-                    return 0f;
+                    statusFactor = 0f;
+                    break;
                 default:
-                    return info.speed;
+                    statusFactor = info.speed;
+                    break;
             }
+
+            return buffFactor * statusFactor;
         }
     }
 

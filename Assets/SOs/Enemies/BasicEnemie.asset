@@ -12,8 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826b9c9a85b97dc42a21ed1b24fc1797, type: 3}
   m_Name: BasicEnemie
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 100
   speed: 10
   visionRange: 200
   attackRange: 80
   scores: 10
+  drops:
+  - dropChance: 0.25
+    item: {fileID: 2319574259628920728, guid: 5afea46166f612042b3a7c8fb68b0743, type: 3}
+  - dropChance: 0.25
+    item: {fileID: 5137405948777216192, guid: 65d5e1a6ae0bfe044b0b21a8ac0e4181, type: 3}
+  - dropChance: 0.25
+    item: {fileID: 2856554891690183320, guid: 04c599e8d952ea242a82af6b9f150c30, type: 3}
+  - dropChance: 0.25
+    item: {fileID: 4890497192233673367, guid: 2eb5918c50602d0448d5ea124928ed3e, type: 3}

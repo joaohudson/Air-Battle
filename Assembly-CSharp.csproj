@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bilboard.cs" />
+    <Compile Include="Assets\Scripts\BuffManager.cs" />
     <Compile Include="Assets\Scripts\CharacterInfo.cs" />
     <Compile Include="Assets\Scripts\CharacterState.cs" />
     <Compile Include="Assets\Scripts\CombatLogic.cs" />
@@ -80,8 +81,11 @@
     <Compile Include="Assets\Scripts\HUD\HealthPlayerDisplay.cs" />
     <Compile Include="Assets\Scripts\HUD\Menu.cs" />
     <Compile Include="Assets\Scripts\HUD\PlayerDataDisplay.cs" />
+    <Compile Include="Assets\Scripts\ItemCollector.cs" />
+    <Compile Include="Assets\Scripts\ItemInfo.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ProjectileInfo.cs" />
+    <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\SaveDataController.cs" />
     <Compile Include="Assets\Scripts\StatusManager.cs" />
     <Compile Include="Assets\Scripts\Util.cs" />

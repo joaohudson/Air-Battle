@@ -20,5 +20,5 @@ MonoBehaviour:
   fireRate: 4
   speed: 120
   size: 1
-  damage: 5
+  damage: 10
   effect: 0

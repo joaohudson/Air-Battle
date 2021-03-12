@@ -1,5 +1,13 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
+public struct Drop
+{
+    [Range(0f, 1f)]
+    public float dropChance;
+    public GameObject item;
+}
+
 [CreateAssetMenu(menuName = "SO/Enemie")]
 public class CharacterInfo : ScriptableObject
 {
@@ -10,5 +18,6 @@ public class CharacterInfo : ScriptableObject
     public float visionRange = 40f;
     public float attackRange = 10f;
     [Header("Enemie")]
-    public int scores = 0;
+    public int scores;
+    public Drop[] drops;
 }

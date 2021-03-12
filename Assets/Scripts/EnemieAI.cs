@@ -110,9 +110,22 @@ public class EnemieAI : MonoBehaviour
 
     private void Die()
     {
+        var drops = state.info.drops;
         Instantiate(destroyedVersionPrefab, transform.position, transform.rotation);
-        EnemieManager.Instance.DeathResgiter();
+        
+        foreach(var drop in drops)
+        {
+            if (Util.Chance(drop.dropChance))
+            {
+                Instantiate(drop.item, transform.position, Quaternion.identity);
+                break;
+            }
+
+        }
+
         PlayerController.Instance.AddScore(state.info.scores);
+        EnemieManager.Instance.DeathResgiter();
+
         enabled = false;
         Destroy(gameObject);
     }

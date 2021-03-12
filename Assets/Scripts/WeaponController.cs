@@ -35,7 +35,7 @@ public class WeaponController : MonoBehaviour
         if (fireInterval > 0f)
             return;
 
-        FastShooter.Instance.Fire(projectiles[currentProjectile], transform.position + transform.forward * 2f, transform.forward, target);
+        FastShooter.Instance.Fire(projectiles[currentProjectile], transform.position + transform.forward * 2f, transform.forward, target, state);
         fireInterval = 1f / projectiles[currentProjectile].fireRate;
     }
 
