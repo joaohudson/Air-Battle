@@ -5,7 +5,7 @@ O jogo conta
 uma visão 3° pessoa, sistema de pontuação, record, buff e debuff.
 
 Curiosidade: o jogo foi feito usando apenas os assets default do unity,
-sem nada importado, seja malhas, texturas ou áudios.
+sem nada importado, sejam malhas, texturas ou áudios.
 
 A game where you control a ship and try to destroy alien ships as much as you can.
 The game features a 3rd person view, scoring system, record, buff and debuff.
